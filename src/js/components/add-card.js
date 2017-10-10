@@ -1,7 +1,9 @@
 import { h, Component } from 'preact';
-import { VaultDesignInputField } from '@jsfoobar/design-patterns';
+import { VaultDesignInputField, AtomDesignInputField } from '@jsfoobar/design-patterns';
 import InputField from '@jsfoobar/input-field';
-import CardNumber from './credit-card-number';
+import CardNumber from './card-number';
+import CardExpiry from './card-expiration';
+import CardCVV from './cvv-number';
 import '../../scss/add-card.scss';
 
 class AddCard extends Component {
@@ -25,15 +27,11 @@ class AddCard extends Component {
       <form>
         <h2>Add Card</h2>
         <div class="add-card">
-          <CardNumber class="masked" type="tel" name="card-number" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" onChange={this.onChangeHandler} onKeyUp={this.onKeyUpHandler} required="required" />
+          <CardNumber label="Card Number" class="masked" type="tel" name="card-number" id="cardNumber" placeholder="15 to 16 digits" onChange={this.onChangeHandler} onKeyUp={this.onKeyUpHandler} required="required" />
 
-          <VaultDesignInputField label="Expiry">
-            <InputField name="expiry" id="expiry" maxLength="7" placeholder="MM/YYYY" onChange={this.onChangeHandler} required="required"/>
-          </VaultDesignInputField>
+          <CardExpiry label="Expiry" class="masked" type="tel" name="cvv" id="cvv" placeholder="MM/YY" onChange={this.onChangeHandler} onKeyUp={this.onKeyUpHandler} required="required" />
 
-          <VaultDesignInputField label="CVV">
-            <InputField name="cvv" id="cvv" maxLength="3" placeholder="* * *" onChange={this.onChangeHandler} required="required"/>
-          </VaultDesignInputField>
+          <CardCVV label="CVV" class="masked" type="tel" name="cvv" id="cvv" placeholder="XXX" onChange={this.onChangeHandler} onKeyUp={this.onKeyUpHandler} required="required" />
 
           <VaultDesignInputField label="Nickname">
             <InputField name="nick-name" id="nickName" maxLength="20" placeholder="E.g. My Points Card" onChange={this.onChangeHandler} required="required"/>
@@ -42,6 +40,10 @@ class AddCard extends Component {
           <VaultDesignInputField>
             <InputField name="addCard" type="submit" />
           </VaultDesignInputField>
+
+          <AtomDesignInputField>
+            <InputField name="addCard" type="submit" />
+          </AtomDesignInputField>
         </div>
       </form>
     )
