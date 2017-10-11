@@ -2,7 +2,7 @@ import { h } from 'preact';
 import AddCard from './js/components/add-card';
 
 const App = () => (
-  <AddCard />
-)
+	<AddCard />
+);
 
 export default App;

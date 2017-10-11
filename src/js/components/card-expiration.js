@@ -34,8 +34,8 @@ const renderCardExpiry = (MaskingComponent) => {
 
 			const propsForMasking = {};
 
-      propsForMasking.mask = this.state.mask;
-      propsForMasking.value = this.state.value;
+			propsForMasking.mask = this.state.mask;
+			propsForMasking.value = this.state.value;
 
 			return (
 				<VaultDesignInputField label={label}>
@@ -46,7 +46,7 @@ const renderCardExpiry = (MaskingComponent) => {
 		}
 	}
 
-  //Copy the static methods
+	//Copy the static methods
 	CardExpiry.maskingOnKeyUp = MaskingComponent.maskingOnKeyUp;
 
 	return CardExpiry;

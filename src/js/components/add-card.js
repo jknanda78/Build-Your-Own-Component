@@ -3,51 +3,101 @@ import { VaultDesignInputField, AtomDesignInputField } from '@jsfoobar/design-pa
 import InputField from '@jsfoobar/input-field';
 import CardNumber from './card-number';
 import CardExpiry from './card-expiration';
-import CardCVV from './cvv-number';
+import CardCVV from './card-cvv';
 import '../../scss/add-card.scss';
 
 class AddCard extends Component {
-  constructor(props) {
-    super(props);
+		onChangeHandler = e => {
+			console.log('AddCard::onChangeHandler', e); // eslint-disable-line no-console
+		}
 
-    this.onChangeHandler = this.onChangeHandler.bind(this);
-    this.onKeyUpHandler = this.onKeyUpHandler.bind(this);
-  }
+		onKeyUpHandler = (e, state) => {
+      this.setState({
+        cardType: state.cardType
+      });
+		}
 
-  onChangeHandler = e => {
-    console.log("AddCard::onChangeHandler", e); // eslint-disable-line no-console
-  }
+		constructor(props) {
+			super(props);
 
-  onKeyUpHandler = e => {
-    console.log("AddCard::onKeyUpHandler", e); // eslint-disable-line no-console
-  }
+      this.state = {
+        cardType: ''
+      };
 
-  render () {
-    return (
-      <form>
-        <h2>Add Card</h2>
-        <div class="add-card">
-          <CardNumber label="Card Number" class="masked" type="tel" name="card-number" id="cardNumber" placeholder="15 to 16 digits" onChange={this.onChangeHandler} onKeyUp={this.onKeyUpHandler} required="required" />
+			this.onChangeHandler = this.onChangeHandler.bind(this);
+			this.onKeyUpHandler = this.onKeyUpHandler.bind(this);
+		}
 
-          <CardExpiry label="Expiry" class="masked" type="tel" name="cvv" id="cvv" placeholder="MM/YY" onChange={this.onChangeHandler} onKeyUp={this.onKeyUpHandler} required="required" />
+		render () {
+			return (
+				<form>
+					<h2>Add Card</h2>
+					<div class="add-card">
+						<CardNumber
+							label="Card Number"
+							class="masked"
+							type="tel"
+							name="card-number"
+							id="cardNumber"
+							placeholder="15 to 16 digits"
+							onChange={this.onChangeHandler}
+							onKeyUp={this.onKeyUpHandler}
+							required="required"
+						/>
 
-          <CardCVV label="CVV" class="masked" type="tel" name="cvv" id="cvv" placeholder="XXX" onChange={this.onChangeHandler} onKeyUp={this.onKeyUpHandler} required="required" />
+						<CardExpiry
+							label="Expiry"
+							class="masked"
+							type="tel"
+							name="cvv"
+							id="cvv"
+							placeholder="MM/YY"
+							onChange={this.onChangeHandler}
+							onKeyUp={this.onKeyUpHandler}
+							required="required"
+						/>
 
-          <VaultDesignInputField label="Nickname">
-            <InputField name="nick-name" id="nickName" maxLength="20" placeholder="E.g. My Points Card" onChange={this.onChangeHandler} required="required"/>
-          </VaultDesignInputField>
+						<CardCVV
+							label="CVV"
+							class="masked"
+							type="tel"
+							name="cvv"
+							id="cvv"
+              cardType={this.state.cardType}
+							placeholder="3 to 5 digits"
+							onChange={this.onChangeHandler}
+							onKeyUp={this.onKeyUpHandler}
+							required="required"
+						/>
 
-          <VaultDesignInputField>
-            <InputField name="addCard" type="submit" />
-          </VaultDesignInputField>
+						<VaultDesignInputField label="Nickname">
+							<InputField
+								name="nick-name"
+								id="nickName"
+								maxLength="20"
+								placeholder="E.g. My Points Card"
+								onChange={this.onChangeHandler}
+								required="required"
+							/>
+						</VaultDesignInputField>
 
-          <AtomDesignInputField>
-            <InputField name="addCard" type="submit" />
-          </AtomDesignInputField>
-        </div>
-      </form>
-    )
-  }
+						<VaultDesignInputField>
+							<InputField
+								name="addCard"
+								type="submit"
+							/>
+						</VaultDesignInputField>
+
+						<AtomDesignInputField>
+							<InputField
+								name="addCard"
+								type="submit"
+							/>
+						</AtomDesignInputField>
+					</div>
+				</form>
+			);
+		}
 }
 
 export default AddCard;
