@@ -8,7 +8,7 @@
     "prepublish": "npm test",
     "serve": "preact build && preact serve",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "test": "eslint src && jest"
+    "test": "eslint src --fix && jest"
   },
   "repository": {
     "type": "git",

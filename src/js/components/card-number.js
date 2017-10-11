@@ -25,7 +25,7 @@ const renderCardNumber = (MaskingComponent) => {
 			});
 
 			if (props.onKeyUp) {
-				props.onKeyUp(e, {cardType: card.type});
+				props.onKeyUp(e, { cardType: card.type });
 			}
 		}
 

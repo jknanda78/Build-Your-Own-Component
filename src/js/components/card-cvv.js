@@ -6,7 +6,7 @@ import { CardCVVMasking } from '@jsfoobar/masking-input-field';
 const renderCardCVV = (MaskingComponent) => {
 	class CardCVV extends Component {
 		onFocusHandler = e => {
-			const { cardType, placeholder } = this.props;
+			const { cardType } = this.props;
 			const card = (cardType) ? CardCVV.getMasking(cardType) : '';
 			const maxlength = (card) ? card.mask.length : '';
 

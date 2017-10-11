@@ -12,17 +12,17 @@ class AddCard extends Component {
 		}
 
 		onKeyUpHandler = (e, state) => {
-      this.setState({
-        cardType: state.cardType
-      });
+			this.setState({
+				cardType: state.cardType
+			});
 		}
 
 		constructor(props) {
 			super(props);
 
-      this.state = {
-        cardType: ''
-      };
+			this.state = {
+				cardType: ''
+			};
 
 			this.onChangeHandler = this.onChangeHandler.bind(this);
 			this.onKeyUpHandler = this.onKeyUpHandler.bind(this);
@@ -63,7 +63,7 @@ class AddCard extends Component {
 							type="tel"
 							name="cvv"
 							id="cvv"
-              cardType={this.state.cardType}
+							cardType={this.state.cardType}
 							placeholder="3 to 5 digits"
 							onChange={this.onChangeHandler}
 							onKeyUp={this.onKeyUpHandler}
