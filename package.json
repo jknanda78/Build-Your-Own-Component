@@ -28,7 +28,7 @@
   "dependencies": {
     "@jsfoobar/card-validation": "0.0.7",
     "@jsfoobar/design-patterns": "0.0.9",
-    "@jsfoobar/input-field": "0.0.6",
+    "@jsfoobar/input-field": "0.0.7",
     "@jsfoobar/masking-input-field": "0.0.17",
     "esdoc": "^1.0.3",
     "esdoc-standard-plugin": "^1.0.0",
