@@ -4,6 +4,10 @@ import InputField from '@jsfoobar/input-field';
 import { Masking } from '@jsfoobar/masking-input-field';
 
 class CardNumber extends Component {
+	state = {
+		value: ''
+	};
+
 	onKeyUpHandler = e => {
 		const props = this.props;
 
@@ -11,15 +15,8 @@ class CardNumber extends Component {
 			value: e.target.value
 		});
 
-		if (props.maskingOnKeyUp) {
-			props.maskingOnKeyUp(e);
-		}
-
-		if (props.validationOnKeyUp) {
-			props.validationOnKeyUp(e,  props.cardLength);
-		}
-
 		if (props.onKeyUp) {
+			console.log('CardNumber::onKeyUp');
 			props.onKeyUp(e, props.cardType);
 		}
 	}
@@ -27,27 +24,10 @@ class CardNumber extends Component {
 	onBlurHandler = e => {
 		const props = this.props;
 
-		if (props.maskingOnKeyUp) {
-			props.maskingOnKeyUp(e);
-		}
-
-		if (props.validationOnBlur) {
-			props.validationOnBlur(e, props.cardLength);
-		}
-
 		if (props.onBlur) {
+			console.log('CardNumber::onBlur');
 			props.onBlur(e, props.cardType);
 		}
-	}
-
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			value: ''
-		};
-
-		this.onKeyUpHandler = this.onKeyUpHandler.bind(this);
 	}
 
 	render() {
@@ -66,11 +46,18 @@ class CardNumber extends Component {
 
 		return (
 			<VaultDesignInputField label={label} error={props.error} name={propsForInput.name}>
-				<InputField {...propsForInput} onKeyUp={this.onKeyUpHandler} onBlur={this.onBlurHandler} value={val} />
+				<InputField
+					{...propsForInput}
+					onKeyUp={this.onKeyUpHandler}
+					onBlur={this.onBlurHandler}
+					value={val}
+				/>
 				<Masking {...propsForMasking} />
 			</VaultDesignInputField>
 		);
 	}
 }
+
+CardNumber.displayName = 'Card Number';
 
 export default CardNumber;

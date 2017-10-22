@@ -26,10 +26,10 @@
     "extends": "eslint-config-synacor"
   },
   "dependencies": {
-    "@jsfoobar/card-validation": "0.0.6",
+    "@jsfoobar/card-validation": "0.0.7",
     "@jsfoobar/design-patterns": "0.0.9",
     "@jsfoobar/input-field": "0.0.6",
-    "@jsfoobar/masking-input-field": "0.0.15",
+    "@jsfoobar/masking-input-field": "0.0.17",
     "esdoc": "^1.0.3",
     "esdoc-standard-plugin": "^1.0.0",
     "node-sass": "^4.5.3",
@@ -40,6 +40,7 @@
     "sass-loader": "^6.0.6"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.1.2",
     "babel-preset-react": "^6.1.2",
     "babel-preset-stage-2": "^6.5.0",

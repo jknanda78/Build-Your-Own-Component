@@ -50,10 +50,6 @@ class CardCVV extends Component {
 		this.onFocusHandler = this.onFocusHandler.bind(this);
 	}
 
-	componentDidMount() {
-		console.log("card-cvv::componentDidMount"); //eslint-disable-line
-	}
-
 	render() {
 		const props = this.props;
 		const { label, maxLength, ...propsForInput } = props; // eslint-disable-line no-unused-vars
