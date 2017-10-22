@@ -57,67 +57,67 @@ class AddCard extends Component {
 			return (
 				<form>
 					<h2>Add Card</h2>
-					<div class='add-card'>
+					<div class="add-card">
 						<CardNumber
-							label='Card Number'
-							class='masked'
-							type='tel'
-							name='card-number'
-							id='cardNumber'
-							placeholder='15 to 16 digits'
+							label="Card Number"
+							class="masked"
+							type="tel"
+							name="card-number"
+							id="cardNumber"
+							placeholder="15 to 16 digits"
 							onBlur={this.onBlurHandler}
 							onChange={this.onChangeHandler}
 							onKeyUp={this.onKeyUpHandler}
-							required='required'
+							required="required"
 						/>
 
 						<CardExpiryWithMasking
-							label='Expiry'
-							class='masked'
-							type='tel'
-							name='cvv'
-							id='cvv'
-							placeholder='MM/YY'
+							label="Expiry"
+							class="masked"
+							type="tel"
+							name="cvv"
+							id="cvv"
+							placeholder="MM/YY"
 							onChange={this.onChangeHandler}
 							onKeyUp={this.onKeyUpHandler}
-							required='required'
+							required="required"
 						/>
 
 						<CardCVVWithMasking
-							label='CVV'
-							class='masked'
-							type='tel'
-							name='cvv'
-							id='cvv'
+							label="CVV"
+							class="masked"
+							type="tel"
+							name="cvv"
+							id="cvv"
 							cardType={this.state.cardType}
-							placeholder='3 to 5 digits'
+							placeholder="3 to 5 digits"
 							onChange={this.onChangeHandler}
 							onKeyUp={this.onKeyUpHandler}
-							required='required'
+							required="required"
 						/>
 
-						<VaultDesignInputField label='Nickname'>
+						<VaultDesignInputField label="Nickname">
 							<InputField
-								name='nick-name'
-								id='nickName'
-								maxLength='20'
-								placeholder='E.g. My Points Card'
+								name="nick-name"
+								id="nickName"
+								maxLength="20"
+								placeholder="E.g. My Points Card"
 								onChange={this.onChangeHandler}
-								required='required'
+								required="required"
 							/>
 						</VaultDesignInputField>
 
 						<VaultDesignInputField>
 							<InputField
-								name='addCard'
-								type='submit'
+								name="addCard"
+								type="submit"
 							/>
 						</VaultDesignInputField>
 
 						<AtomDesignInputField>
 							<InputField
-								name='addCard'
-								type='submit'
+								name="addCard"
+								type="submit"
 							/>
 						</AtomDesignInputField>
 					</div>
