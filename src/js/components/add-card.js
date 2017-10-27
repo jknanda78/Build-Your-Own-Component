@@ -15,7 +15,7 @@ const CardNumberWithValidation = validateCardNumberHOC(CardNumber); //eslint-dis
 const CardNumberWithMasking = cardNumberMaskingHOC(CardNumber);  //eslint-disable-line
 
 //Card number field with masking and validation
-const CardNumberWithMaskingAndValidation = validateCardNumberHOC(CardNumberWithMasking); //eslint-disable-line
+const CardNumberWithMaskingAndValidation = validateCardNumberHOC(cardNumberMaskingHOC(CardNumber)); //eslint-disable-line
 
 //Card number field with validation and masking
 const CardNumberWithValidationAndMasking = cardNumberMaskingHOC(CardNumberWithValidation); //eslint-disable-line
