@@ -1,7 +1,5 @@
 import { h, Component } from 'preact';
-import { VaultDesignInputField } from '@jsfoobar/design-patterns';
 import InputField from '@jsfoobar/input-field';
-import { Masking } from '@jsfoobar/masking-input-field';
 
 class CardNumber extends Component {
 	state = {
@@ -32,7 +30,7 @@ class CardNumber extends Component {
 
 	render() {
 		const props = this.props;
-		const { label, ...propsForInput } = props; // eslint-disable-line no-unused-vars
+		const { label, Masking, DesignPattern, ...propsForInput } = props; // eslint-disable-line no-unused-vars
 
 		propsForInput.maxLength = props.maxLength;
 		propsForInput.placeholder = props.placeholder;
@@ -45,7 +43,7 @@ class CardNumber extends Component {
 		const val = props.value || this.state.value;
 
 		return (
-			<VaultDesignInputField label={label} error={props.error} name={propsForInput.name}>
+			<DesignPattern label={label} error={props.error} name={propsForInput.name}>
 				<InputField
 					{...propsForInput}
 					onKeyUp={this.onKeyUpHandler}
@@ -53,7 +51,7 @@ class CardNumber extends Component {
 					value={val}
 				/>
 				<Masking {...propsForMasking} />
-			</VaultDesignInputField>
+			</DesignPattern>
 		);
 	}
 }

@@ -1,5 +1,4 @@
 import { h, Component } from 'preact';
-import { VaultDesignInputField, AtomDesignInputField } from '@jsfoobar/design-patterns';
 import InputField from '@jsfoobar/input-field';
 import { cardNumberMaskingHOC, cardExpiryMaskingHOC, cardCVVMaskingHOC } from '@jsfoobar/masking-input-field';
 import { validateCardNumberHOC } from '@jsfoobar/card-validation';
@@ -54,11 +53,14 @@ class AddCard extends Component {
 		}
 
 		render () {
+			const { DesignPattern } = this.props;
+
 			return (
 				<form>
 					<h2>Add Card</h2>
 					<div class="add-card">
-						<CardNumber
+						<CardNumberWithMasking
+							{...this.props}
 							label="Card Number"
 							class="masked"
 							type="tel"
@@ -72,6 +74,7 @@ class AddCard extends Component {
 						/>
 
 						<CardExpiryWithMasking
+							{...this.props}
 							label="Expiry"
 							class="masked"
 							type="tel"
@@ -84,6 +87,7 @@ class AddCard extends Component {
 						/>
 
 						<CardCVVWithMasking
+							{...this.props}
 							label="CVV"
 							class="masked"
 							type="tel"
@@ -96,7 +100,7 @@ class AddCard extends Component {
 							required="required"
 						/>
 
-						<VaultDesignInputField label="Nickname">
+						<DesignPattern label="Nickname">
 							<InputField
 								name="nick-name"
 								id="nickName"
@@ -105,21 +109,14 @@ class AddCard extends Component {
 								onChange={this.onChangeHandler}
 								required="required"
 							/>
-						</VaultDesignInputField>
+						</DesignPattern>
 
-						<VaultDesignInputField>
+						<DesignPattern>
 							<InputField
 								name="addCard"
 								type="submit"
 							/>
-						</VaultDesignInputField>
-
-						<AtomDesignInputField>
-							<InputField
-								name="addCard"
-								type="submit"
-							/>
-						</AtomDesignInputField>
+						</DesignPattern>
 					</div>
 				</form>
 			);

@@ -1,7 +1,5 @@
 import { h, Component } from 'preact';
 import InputField from '@jsfoobar/input-field';
-import { VaultDesignInputField } from '@jsfoobar/design-patterns';
-import { Masking } from '@jsfoobar/masking-input-field';
 
 class CardCVV extends Component {
 	onFocusHandler = e => {
@@ -52,7 +50,7 @@ class CardCVV extends Component {
 
 	render() {
 		const props = this.props;
-		const { label, maxLength, ...propsForInput } = props; // eslint-disable-line no-unused-vars
+		const { label, maxLength, Masking, DesignPattern, ...propsForInput } = props; // eslint-disable-line no-unused-vars
 
 		propsForInput.maxLength = this.state.maxLength || maxLength;
 
@@ -62,10 +60,10 @@ class CardCVV extends Component {
 		propsForMasking.value = this.state.value;
 
 		return (
-			<VaultDesignInputField label={label}>
+			<DesignPattern label={label}>
 				<InputField {...propsForInput} onKeyUp={this.onKeyUpHandler} onFocus={this.onFocusHandler} value={this.state.value} />
 				<Masking {...propsForMasking} />
-			</VaultDesignInputField>
+			</DesignPattern>
 		);
 	}
 }
