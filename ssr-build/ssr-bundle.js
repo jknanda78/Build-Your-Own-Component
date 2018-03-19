@@ -789,14 +789,6 @@ var _cardNumber = __webpack_require__("8tcF");
 
 var _cardNumber2 = _interopRequireDefault(_cardNumber);
 
-var _cardExpiration = __webpack_require__("YXlM");
-
-var _cardExpiration2 = _interopRequireDefault(_cardExpiration);
-
-var _cardCvv = __webpack_require__("WFeU");
-
-var _cardCvv2 = _interopRequireDefault(_cardCvv);
-
 __webpack_require__("Yfv7");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -867,12 +859,26 @@ var AddCard = function (_Component) {
 				'div',
 				null,
 				(0, _preact.h)(
+					'ul',
+					null,
+					(0, _preact.h)(
+						'li',
+						null,
+						' Try entering valid (16 digit) card number and tab out.'
+					),
+					(0, _preact.h)(
+						'li',
+						null,
+						' Try entering invalid card number and tab out.'
+					)
+				),
+				(0, _preact.h)(
 					'form',
 					null,
 					(0, _preact.h)(
 						'h2',
 						null,
-						'Add Card - Card number with masking & without validation'
+						'Card entry - Card number with masking & without validation'
 					),
 					(0, _preact.h)(
 						'div',
@@ -897,12 +903,37 @@ var AddCard = function (_Component) {
 					(0, _preact.h)(
 						'h2',
 						null,
-						'Add Card - Card number with validation without masking'
+						'Card entry - Card number with validation without masking'
 					),
 					(0, _preact.h)(
 						'div',
 						{ 'class': 'add-card' },
 						(0, _preact.h)(CardNumberWithValidation, _extends({}, this.props, {
+							label: 'Card Number',
+							'class': 'masked',
+							type: 'tel',
+							name: 'card-number',
+							id: 'cardNumber',
+							placeholder: '15 to 16 digits',
+							onBlur: this.onBlurHandler,
+							onChange: this.onChangeHandler,
+							onKeyUp: this.onKeyUpHandler,
+							required: 'required'
+						}))
+					)
+				),
+				(0, _preact.h)(
+					'form',
+					null,
+					(0, _preact.h)(
+						'h2',
+						null,
+						'Card entry - Card number with validation and masking'
+					),
+					(0, _preact.h)(
+						'div',
+						{ 'class': 'add-card' },
+						(0, _preact.h)(CardNumberWithMaskingAndValidation, _extends({}, this.props, {
 							label: 'Card Number',
 							'class': 'masked',
 							type: 'tel',
@@ -976,135 +1007,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-
-/***/ "WFeU":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _class, _temp, _initialiseProps;
-
-var _preact = __webpack_require__("KM04");
-
-var _inputField = __webpack_require__("sbNy");
-
-var _inputField2 = _interopRequireDefault(_inputField);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CardCVV = (_temp = _class = function (_Component) {
-	_inherits(CardCVV, _Component);
-
-	function CardCVV(props) {
-		_classCallCheck(this, CardCVV);
-
-		var _this = _possibleConstructorReturn(this, (CardCVV.__proto__ || Object.getPrototypeOf(CardCVV)).call(this, props));
-
-		_initialiseProps.call(_this);
-
-		_this.state = {
-			value: '',
-			mask: '',
-			placeholder: props.placeholder,
-			maxLength: ''
-		};
-
-		_this.onKeyUpHandler = _this.onKeyUpHandler.bind(_this);
-		_this.onFocusHandler = _this.onFocusHandler.bind(_this);
-		return _this;
-	}
-
-	_createClass(CardCVV, [{
-		key: 'render',
-		value: function render() {
-			var props = this.props;
-
-			var label = props.label,
-			    maxLength = props.maxLength,
-			    Masking = props.Masking,
-			    DesignPattern = props.DesignPattern,
-			    propsForInput = _objectWithoutProperties(props, ['label', 'maxLength', 'Masking', 'DesignPattern']); // eslint-disable-line no-unused-vars
-
-			propsForInput.maxLength = this.state.maxLength || maxLength;
-
-			var propsForMasking = {};
-
-			propsForMasking.mask = this.state.mask;
-			propsForMasking.value = this.state.value;
-
-			return (0, _preact.h)(
-				DesignPattern,
-				{ label: label },
-				(0, _preact.h)(_inputField2.default, _extends({}, propsForInput, { onKeyUp: this.onKeyUpHandler, onFocus: this.onFocusHandler, value: this.state.value })),
-				(0, _preact.h)(Masking, propsForMasking)
-			);
-		}
-	}]);
-
-	return CardCVV;
-}(_preact.Component), _initialiseProps = function _initialiseProps() {
-	var _this2 = this;
-
-	this.onFocusHandler = function (e) {
-		var props = _this2.props;
-		var cardType = props.cardType;
-
-		var card = cardType ? props.getMasking(cardType) : '';
-		var maxlength = card ? card.mask.length : '';
-
-		if (maxlength) {
-			_this2.setState({
-				maxLength: maxlength
-			});
-		}
-	};
-
-	this.onKeyUpHandler = function (e) {
-		var props = _this2.props;
-		var inputVal = e.target.value;
-		var cardType = props.cardType;
-
-		var card = cardType ? props.getMasking(cardType) : '';
-
-		var propsForCardCVVMasking = {
-			value: inputVal,
-			mask: card ? card.mask : ''
-		};
-
-		var inputState = props.maskingOnKeyUp(e, propsForCardCVVMasking);
-
-		_this2.setState({
-			value: inputState && inputState.value || inputVal,
-			mask: inputState && inputState.mask
-		});
-	};
-}, _temp);
-
-
-CardCVV.defaultProps = {
-	maxLength: 3
-};
-
-exports.default = CardCVV;
 
 /***/ }),
 
@@ -1282,98 +1184,6 @@ var cardNumberMaskingHOC = function cardNumberMaskingHOC(WrappedComponent) {
 };
 
 exports.default = cardNumberMaskingHOC;
-
-/***/ }),
-
-/***/ "YXlM":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _preact = __webpack_require__("KM04");
-
-var _inputField = __webpack_require__("sbNy");
-
-var _inputField2 = _interopRequireDefault(_inputField);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CardExpiry = function (_Component) {
-	_inherits(CardExpiry, _Component);
-
-	function CardExpiry() {
-		var _ref;
-
-		var _temp, _this, _ret;
-
-		_classCallCheck(this, CardExpiry);
-
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
-
-		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CardExpiry.__proto__ || Object.getPrototypeOf(CardExpiry)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-			value: '',
-			mask: _this.props.placeholder
-		}, _this.onKeyUpHandler = function (e) {
-			var inputState = _this.props.maskingOnKeyUp(e, _this.props);
-
-			if (inputState && (inputState.value || inputState.mask)) {
-				_this.setState({
-					value: inputState.value,
-					mask: inputState.mask
-				});
-			}
-		}, _temp), _possibleConstructorReturn(_this, _ret);
-	}
-
-	_createClass(CardExpiry, [{
-		key: 'render',
-		value: function render() {
-			var props = this.props;
-
-			var label = props.label,
-			    Masking = props.Masking,
-			    DesignPattern = props.DesignPattern,
-			    propsForInput = _objectWithoutProperties(props, ['label', 'Masking', 'DesignPattern']); // eslint-disable-line no-unused-vars
-
-			propsForInput.maxLength = props.placeholder.length;
-
-			var propsForMasking = {};
-
-			propsForMasking.mask = this.state.mask;
-			propsForMasking.value = this.state.value;
-
-			return (0, _preact.h)(
-				DesignPattern,
-				{ label: label },
-				(0, _preact.h)(_inputField2.default, _extends({}, propsForInput, { onKeyUp: this.onKeyUpHandler, value: this.state.value })),
-				(0, _preact.h)(Masking, propsForMasking)
-			);
-		}
-	}]);
-
-	return CardExpiry;
-}(_preact.Component);
-
-exports.default = CardExpiry;
 
 /***/ }),
 
