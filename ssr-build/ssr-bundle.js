@@ -263,14 +263,12 @@ var CardNumber = function (_Component) {
 			});
 
 			if (props.onKeyUp) {
-				console.log('CardNumber::onKeyUp');
 				props.onKeyUp(e, props.cardType);
 			}
 		}, _this.onBlurHandler = function (e) {
 			var props = _this.props;
 
 			if (props.onBlur) {
-				console.log('CardNumber::onBlur');
 				props.onBlur(e, props.cardType);
 			}
 		}, _temp), _possibleConstructorReturn(_this, _ret);
