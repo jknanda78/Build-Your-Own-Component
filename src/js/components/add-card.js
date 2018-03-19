@@ -56,69 +56,44 @@ class AddCard extends Component {
 			const { DesignPattern } = this.props;
 
 			return (
-				<form>
-					<h2>Add Card</h2>
-					<div class="add-card">
-						<CardNumberWithMasking
-							{...this.props}
-							label="Card Number"
-							class="masked"
-							type="tel"
-							name="card-number"
-							id="cardNumber"
-							placeholder="15 to 16 digits"
-							onBlur={this.onBlurHandler}
-							onChange={this.onChangeHandler}
-							onKeyUp={this.onKeyUpHandler}
-							required="required"
-						/>
-
-						<CardExpiryWithMasking
-							{...this.props}
-							label="Expiry"
-							class="masked"
-							type="tel"
-							name="cvv"
-							id="cvv"
-							placeholder="MM/YY"
-							onChange={this.onChangeHandler}
-							onKeyUp={this.onKeyUpHandler}
-							required="required"
-						/>
-
-						<CardCVVWithMasking
-							{...this.props}
-							label="CVV"
-							class="masked"
-							type="tel"
-							name="cvv"
-							id="cvv"
-							cardType={this.state.cardType}
-							placeholder="3 to 5 digits"
-							onChange={this.onChangeHandler}
-							onKeyUp={this.onKeyUpHandler}
-							required="required"
-						/>
-
-						<DesignPattern label="Nickname">
-							<InputField
-								name="nick-name"
-								id="nickName"
-								maxLength="20"
-								placeholder="E.g. My Points Card"
+				<div>
+					<form>
+						<h2>Add Card - Card number with masking & without validation</h2>
+						<div class="add-card">
+							<CardNumberWithMasking
+								{...this.props}
+								label="Card Number"
+								class="masked"
+								type="tel"
+								name="card-number"
+								id="cardNumber"
+								placeholder="15 to 16 digits"
+								onBlur={this.onBlurHandler}
 								onChange={this.onChangeHandler}
+								onKeyUp={this.onKeyUpHandler}
 								required="required"
 							/>
-						</DesignPattern>
-
-						<DesignPattern>
-							<InputField
-								name="addCard"
-								type="submit"
+						</div>
+					</form>
+					<form>
+						<h2>Add Card - Card number with validation without masking</h2>
+						<div class="add-card">
+							<CardNumberWithValidation
+								{...this.props}
+								label="Card Number"
+								class="masked"
+								type="tel"
+								name="card-number"
+								id="cardNumber"
+								placeholder="15 to 16 digits"
+								onBlur={this.onBlurHandler}
+								onChange={this.onChangeHandler}
+								onKeyUp={this.onKeyUpHandler}
+								required="required"
 							/>
-						</DesignPattern>
-					</div>
-				</form>
+						</div>
+					</form>
+				</div>
 			);
 		}
 }

@@ -14,7 +14,6 @@ class CardNumber extends Component {
 		});
 
 		if (props.onKeyUp) {
-			console.log('CardNumber::onKeyUp');
 			props.onKeyUp(e, props.cardType);
 		}
 	}
@@ -23,7 +22,6 @@ class CardNumber extends Component {
 		const props = this.props;
 
 		if (props.onBlur) {
-			console.log('CardNumber::onBlur');
 			props.onBlur(e, props.cardType);
 		}
 	}

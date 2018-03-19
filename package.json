@@ -9,7 +9,9 @@
     "prepublish": "npm test",
     "serve": "preact build && preact serve",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "test": "eslint src --fix && jest"
+    "test": "eslint src --fix && jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -27,14 +29,14 @@
     "extends": "eslint-config-synacor"
   },
   "dependencies": {
-    "@jsfoobar/card-validation": "0.0.8",
-    "@jsfoobar/design-patterns": "0.0.9",
+    "@jsfoobar/card-validation": "~0.0.8",
+    "@jsfoobar/design-patterns": "~0.0.11",
     "@jsfoobar/input-field": "0.0.7",
-    "@jsfoobar/masking-input-field": "0.0.19",
+    "@jsfoobar/masking-input-field": "0.0.20",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "esdoc": "^1.0.3",
     "esdoc-standard-plugin": "^1.0.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.8.3",
     "postcss": "^6.0.0",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
