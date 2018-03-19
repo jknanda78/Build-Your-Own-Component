@@ -1,9 +1,7 @@
 import { h, Component } from 'preact';
-import { cardNumberMaskingHOC, cardExpiryMaskingHOC, cardCVVMaskingHOC } from '@jsfoobar/masking-input-field';
+import { cardNumberMaskingHOC } from '@jsfoobar/masking-input-field';
 import { validateCardNumberHOC } from '@jsfoobar/card-validation';
 import CardNumber from './card-number';
-import CardExpiry from './card-expiration';
-import CardCVV from './card-cvv';
 import '../../scss/add-card.scss';
 
 //Card number field with validation and no masking
@@ -54,8 +52,12 @@ class AddCard extends Component {
 		render () {
 			return (
 				<div>
+					<ul>
+						<li> Try entering valid (16 digit) card number and tab out.</li>
+						<li> Try entering invalid card number and tab out.</li>
+					</ul>
 					<form>
-						<h2>Add Card - Card number with masking & without validation</h2>
+						<h2>Card entry - Card number with masking & without validation</h2>
 						<div class="add-card">
 							<CardNumberWithMasking
 								{...this.props}
@@ -73,9 +75,27 @@ class AddCard extends Component {
 						</div>
 					</form>
 					<form>
-						<h2>Add Card - Card number with validation without masking</h2>
+						<h2>Card entry - Card number with validation without masking</h2>
 						<div class="add-card">
 							<CardNumberWithValidation
+								{...this.props}
+								label="Card Number"
+								class="masked"
+								type="tel"
+								name="card-number"
+								id="cardNumber"
+								placeholder="15 to 16 digits"
+								onBlur={this.onBlurHandler}
+								onChange={this.onChangeHandler}
+								onKeyUp={this.onKeyUpHandler}
+								required="required"
+							/>
+						</div>
+					</form>
+					<form>
+						<h2>Card entry - Card number with validation and masking</h2>
+						<div class="add-card">
+							<CardNumberWithMaskingAndValidation
 								{...this.props}
 								label="Card Number"
 								class="masked"
