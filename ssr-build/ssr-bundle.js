@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "https://jknanda78.github.io//build-your-own-component";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -781,10 +781,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _preact = __webpack_require__("KM04");
 
-var _inputField = __webpack_require__("sbNy");
-
-var _inputField2 = _interopRequireDefault(_inputField);
-
 var _maskingInputField = __webpack_require__("2uBq");
 
 var _cardValidation = __webpack_require__("7mgg");
@@ -824,10 +820,10 @@ var CardNumberWithMaskingAndValidation = (0, _cardValidation.validateCardNumberH
 var CardNumberWithValidationAndMasking = (0, _maskingInputField.cardNumberMaskingHOC)(CardNumberWithValidation); //eslint-disable-line
 
 //Card expiry field with masking and no validation
-var CardExpiryWithMasking = (0, _maskingInputField.cardExpiryMaskingHOC)(_cardExpiration2.default);
+/* const CardExpiryWithMasking = cardExpiryMaskingHOC(CardExpiry); */
 
 //Card cvv field with masking and no validation
-var CardCVVWithMasking = (0, _maskingInputField.cardCVVMaskingHOC)(_cardCvv2.default);
+/* const CardCVVWithMasking = cardCVVMaskingHOC(CardCVV); */
 
 var AddCard = function (_Component) {
 	_inherits(AddCard, _Component);
@@ -867,9 +863,6 @@ var AddCard = function (_Component) {
 	_createClass(AddCard, [{
 		key: 'render',
 		value: function render() {
-			var DesignPattern = this.props.DesignPattern;
-
-
 			return (0, _preact.h)(
 				'div',
 				null,
