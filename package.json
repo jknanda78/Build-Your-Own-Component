@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "name": "build-your-own-component-app",
+  "homepage": "https://jknanda78.github.io/build-your-own-component/",
   "scripts": {
     "build": "preact build",
     "dev": "preact watch",
@@ -47,6 +48,7 @@
     "babel-preset-stage-2": "^6.5.0",
     "eslint": "^4.7.2",
     "eslint-config-synacor": "^2.0.0",
+    "gh-pages": "^1.1.0",
     "if-env": "^1.0.0",
     "jest": "^21.1.0",
     "lerna": "^2.6.0",
