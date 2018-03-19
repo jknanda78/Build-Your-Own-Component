@@ -1,5 +1,4 @@
 import { h, Component } from 'preact';
-import InputField from '@jsfoobar/input-field';
 import { cardNumberMaskingHOC, cardExpiryMaskingHOC, cardCVVMaskingHOC } from '@jsfoobar/masking-input-field';
 import { validateCardNumberHOC } from '@jsfoobar/card-validation';
 import CardNumber from './card-number';
@@ -20,10 +19,10 @@ const CardNumberWithMaskingAndValidation = validateCardNumberHOC(cardNumberMaski
 const CardNumberWithValidationAndMasking = cardNumberMaskingHOC(CardNumberWithValidation); //eslint-disable-line
 
 //Card expiry field with masking and no validation
-const CardExpiryWithMasking = cardExpiryMaskingHOC(CardExpiry);
+/* const CardExpiryWithMasking = cardExpiryMaskingHOC(CardExpiry); */
 
 //Card cvv field with masking and no validation
-const CardCVVWithMasking = cardCVVMaskingHOC(CardCVV);
+/* const CardCVVWithMasking = cardCVVMaskingHOC(CardCVV); */
 
 class AddCard extends Component {
 		state = {
@@ -53,8 +52,6 @@ class AddCard extends Component {
 		}
 
 		render () {
-			const { DesignPattern } = this.props;
-
 			return (
 				<div>
 					<form>
