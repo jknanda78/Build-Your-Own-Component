@@ -69,13 +69,6 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "+Pj2":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -127,9 +120,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _preact = __webpack_require__("KM04");
 
-__webpack_require__("fpf/");
+__webpack_require__("efQB");
 
-__webpack_require__("wb0H");
+__webpack_require__("giSp");
 
 var Masking = function Masking(props) {
 	return (0, _preact.h)(
@@ -151,6 +144,13 @@ var Masking = function Masking(props) {
 Masking.displayName = 'Masking Functional Component';
 
 exports.default = Masking;
+
+/***/ }),
+
+/***/ "3fIs":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -344,13 +344,13 @@ module.exports = ReactPropTypesSecret;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.VaultDesignInputField = exports.AtomDesignInputField = exports.renderFormField = undefined;
+exports.Pattern2 = exports.Pattern1 = exports.renderFormField = undefined;
 
 var _preact = __webpack_require__("KM04");
 
-__webpack_require__("+Pj2");
+__webpack_require__("3fIs");
 
-__webpack_require__("HXMd");
+__webpack_require__("P36y");
 
 var renderFormField = exports.renderFormField = function renderFormField(props) {
 	var label = props.label,
@@ -387,18 +387,18 @@ var renderFormField = exports.renderFormField = function renderFormField(props) 
 	);
 };
 
-var AtomDesignInputField = exports.AtomDesignInputField = function AtomDesignInputField(props) {
+var Pattern1 = exports.Pattern1 = function Pattern1(props) {
 	return (0, _preact.h)(
 		'div',
-		{ 'class': 'atom-input-field' },
+		{ 'class': 'donut-input-field' },
 		renderFormField(props)
 	);
 };
 
-var VaultDesignInputField = exports.VaultDesignInputField = function VaultDesignInputField(props) {
+var Pattern2 = exports.Pattern2 = function Pattern2(props) {
 	return (0, _preact.h)(
 		'div',
-		{ 'class': 'vault-input-field' },
+		{ 'class': 'kitkat-input-field' },
 		renderFormField(props)
 	);
 };
@@ -529,13 +529,6 @@ exports.default = cardExpiryMaskingHOC;
 
 /***/ }),
 
-/***/ "HXMd":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "JkW7":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -557,7 +550,7 @@ var _designPatterns = __webpack_require__("tZtr");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-	return (0, _preact.h)(_addCard2.default, { DesignPattern: _designPatterns.VaultDesignInputField });
+	return (0, _preact.h)(_addCard2.default, { DesignPattern: _designPatterns.Pattern2 });
 };
 
 exports.default = App;
@@ -878,70 +871,56 @@ var AddCard = function (_Component) {
 
 
 			return (0, _preact.h)(
-				'form',
+				'div',
 				null,
 				(0, _preact.h)(
-					'h2',
+					'form',
 					null,
-					'Add Card'
-				),
-				(0, _preact.h)(
-					'div',
-					{ 'class': 'add-card' },
-					(0, _preact.h)(CardNumberWithMasking, _extends({}, this.props, {
-						label: 'Card Number',
-						'class': 'masked',
-						type: 'tel',
-						name: 'card-number',
-						id: 'cardNumber',
-						placeholder: '15 to 16 digits',
-						onBlur: this.onBlurHandler,
-						onChange: this.onChangeHandler,
-						onKeyUp: this.onKeyUpHandler,
-						required: 'required'
-					})),
-					(0, _preact.h)(CardExpiryWithMasking, _extends({}, this.props, {
-						label: 'Expiry',
-						'class': 'masked',
-						type: 'tel',
-						name: 'cvv',
-						id: 'cvv',
-						placeholder: 'MM/YY',
-						onChange: this.onChangeHandler,
-						onKeyUp: this.onKeyUpHandler,
-						required: 'required'
-					})),
-					(0, _preact.h)(CardCVVWithMasking, _extends({}, this.props, {
-						label: 'CVV',
-						'class': 'masked',
-						type: 'tel',
-						name: 'cvv',
-						id: 'cvv',
-						cardType: this.state.cardType,
-						placeholder: '3 to 5 digits',
-						onChange: this.onChangeHandler,
-						onKeyUp: this.onKeyUpHandler,
-						required: 'required'
-					})),
 					(0, _preact.h)(
-						DesignPattern,
-						{ label: 'Nickname' },
-						(0, _preact.h)(_inputField2.default, {
-							name: 'nick-name',
-							id: 'nickName',
-							maxLength: '20',
-							placeholder: 'E.g. My Points Card',
-							onChange: this.onChangeHandler,
-							required: 'required'
-						})
+						'h2',
+						null,
+						'Add Card - Card number with masking & without validation'
 					),
 					(0, _preact.h)(
-						DesignPattern,
+						'div',
+						{ 'class': 'add-card' },
+						(0, _preact.h)(CardNumberWithMasking, _extends({}, this.props, {
+							label: 'Card Number',
+							'class': 'masked',
+							type: 'tel',
+							name: 'card-number',
+							id: 'cardNumber',
+							placeholder: '15 to 16 digits',
+							onBlur: this.onBlurHandler,
+							onChange: this.onChangeHandler,
+							onKeyUp: this.onKeyUpHandler,
+							required: 'required'
+						}))
+					)
+				),
+				(0, _preact.h)(
+					'form',
+					null,
+					(0, _preact.h)(
+						'h2',
 						null,
-						(0, _preact.h)(_inputField2.default, {
-							name: 'addCard',
-							type: 'submit'
-						})
+						'Add Card - Card number with validation without masking'
+					),
+					(0, _preact.h)(
+						'div',
+						{ 'class': 'add-card' },
+						(0, _preact.h)(CardNumberWithValidation, _extends({}, this.props, {
+							label: 'Card Number',
+							'class': 'masked',
+							type: 'tel',
+							name: 'card-number',
+							id: 'cardNumber',
+							placeholder: '15 to 16 digits',
+							onBlur: this.onBlurHandler,
+							onChange: this.onChangeHandler,
+							onKeyUp: this.onKeyUpHandler,
+							required: 'required'
+						}))
 					)
 				)
 			);
@@ -954,6 +933,13 @@ var AddCard = function (_Component) {
 AddCard.displayName = 'Add Card';
 
 exports.default = AddCard;
+
+/***/ }),
+
+/***/ "P36y":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -1640,7 +1626,7 @@ exports.default = InputField;
 
 /***/ }),
 
-/***/ "fpf/":
+/***/ "efQB":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -1784,6 +1770,13 @@ exports.default = cardCVVMaskingHOC;
 
 /***/ }),
 
+/***/ "giSp":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "sbNy":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1813,12 +1806,12 @@ exports.default = _inputField2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.VaultDesignInputField = exports.AtomDesignInputField = undefined;
+exports.Pattern2 = exports.Pattern1 = undefined;
 
 var _inputFieldPatterns = __webpack_require__("CB7t");
 
-exports.AtomDesignInputField = _inputFieldPatterns.AtomDesignInputField;
-exports.VaultDesignInputField = _inputFieldPatterns.VaultDesignInputField;
+exports.Pattern1 = _inputFieldPatterns.Pattern1;
+exports.Pattern2 = _inputFieldPatterns.Pattern2;
 
 /***/ }),
 
@@ -1939,13 +1932,6 @@ module.exports = function () {
 
   return ReactPropTypes;
 };
-
-/***/ }),
-
-/***/ "wb0H":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
