@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "name": "build-your-own-component-app",
+  "homepage": "https://jknanda78.github.io/build-your-own-component/",
   "scripts": {
     "build": "preact build",
     "dev": "preact watch",
@@ -8,11 +9,13 @@
     "prepublish": "npm test",
     "serve": "preact build && preact serve",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "test": "eslint src --fix && jest"
+    "test": "eslint src --fix && jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jknanda78/design-patterns.git"
+    "url": "https://github.com/jknanda78/build-your-own-component.git"
   },
   "license": "MIT",
   "author": "Jyoti Kaustuv Nanda",
@@ -26,18 +29,18 @@
     "extends": "eslint-config-synacor"
   },
   "dependencies": {
-    "@jsfoobar/card-validation": "0.0.8",
-    "@jsfoobar/design-patterns": "0.0.9",
+    "@jsfoobar/card-validation": "~0.0.8",
+    "@jsfoobar/design-patterns": "~0.0.11",
     "@jsfoobar/input-field": "0.0.7",
-    "@jsfoobar/masking-input-field": "0.0.19",
+    "@jsfoobar/masking-input-field": "0.0.20",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "esdoc": "^1.0.3",
     "esdoc-standard-plugin": "^1.0.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.8.3",
+    "postcss": "^6.0.0",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.5.7",
-    "postcss": "^6.0.0",
     "sass-loader": "^6.0.6"
   },
   "devDependencies": {
@@ -47,8 +50,10 @@
     "babel-preset-stage-2": "^6.5.0",
     "eslint": "^4.7.2",
     "eslint-config-synacor": "^2.0.0",
+    "gh-pages": "^1.1.0",
     "if-env": "^1.0.0",
     "jest": "^21.1.0",
+    "lerna": "^2.6.0",
     "preact-cli": "^1.4.1"
   },
   "engines": {
